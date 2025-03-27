@@ -8,6 +8,7 @@ double back_right_velocity = 0;
 double back_left_velocity = 0;
 
 double k_speed = 100;
+double k_speed_change = 1;
 
 void robot_right_left(double amount) {
     front_left_velocity += amount;
@@ -40,4 +41,12 @@ void robot_moveGeneral() {
     front_left_velocity = 0;
     back_right_velocity = 0;
     back_left_velocity = 0;
+}
+
+void increase_speed(){
+    k_speed += k_speed_change;
+}
+
+void decrease_speed(){
+    k_speed -= k_speed_change;
 }
