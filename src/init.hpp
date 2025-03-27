@@ -7,5 +7,5 @@ extern motor m_front_right;
 extern motor m_front_left;
 extern motor m_back_right;
 extern motor m_back_left;
-
+extern vex::brain Brain;
 extern controller Controller;

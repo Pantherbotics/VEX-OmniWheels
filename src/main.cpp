@@ -12,14 +12,18 @@
 using namespace vex;
 
 // A global instance of vex::brain used for printing to the V5 brain screen
-vex::brain       Brain;
 
 // define your global instances of motors and other devices here
 
-void axis1Changed(){
-    robot_rotation((double)Controller.Axis1.position()/100);
-}
-
 int main() {
-    Controller.Axis1.changed(axis1Changed);
+    Brain.Screen.print("Hello please work");
+    while (true){
+        robot_forward_backward((double)Controller.Axis3.position()/100.0);
+        robot_right_left((double)Controller.Axis4.position()/100.0);
+        robot_rotation((double)Controller.Axis1.position()/100.0);
+
+
+        // Move General must be at the bottom.
+        robot_moveGeneral();
+    }
 }
