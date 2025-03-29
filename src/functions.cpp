@@ -1,7 +1,7 @@
 #include "init.hpp"
 #include "functions.hpp"
 
-
+// Everything below is a part of the drive code -- Rohan
 double front_right_velocity = 0;
 double front_left_velocity = 0;
 double back_right_velocity = 0;
@@ -49,4 +49,28 @@ void increase_speed(){
 
 void decrease_speed(){
     k_speed -= k_speed_change;
+}
+
+
+// All below is part of the arm code -- Rohan
+double arm_velocity = 10;
+double claw_velocity = 10;
+double claw_spin_time = 1;
+
+void move_arm_up(){
+    m_arm.stop();
+    m_arm.spin(forward, arm_velocity, rpm);
+}
+
+void move_arm_down(){
+    m_arm.stop();
+    m_arm.spin(reverse, arm_velocity, rpm);
+}
+
+void grab(){
+   m_claw.spinFor(forward, claw_spin_time, seconds, claw_velocity, rpm);
+}
+
+void release(){
+    m_claw.spinFor(reverse, claw_spin_time, seconds, claw_velocity, rpm);
 }
